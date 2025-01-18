@@ -50,12 +50,12 @@ function KareninAlani(kenaruzunlugu) {
 	4. Hesaplanan çemberin çevresi döndürülecektir.
 */
 
-function CemberinCevresi(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinCevresi(cemberinYaricapi) {
+  return 2 * pi * cemberinYaricapi;
 }
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
-
+console.log(CemberinCevresi(5));
 /* 	GÖREV 2:  
 - CemberinAlani fonksiyonunu kullanarak aşağıdaki yönergeleri uygulayın:
 	1. Argüman olarak çemberin yarıçapını BİRİNCİ parametre olacak alacaktır. 
@@ -64,8 +64,8 @@ function CemberinCevresi(/* kodlar buraya */) {
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinAlani(cemberinYaricapi, piSayisi) {
+  return piSayisi * Math.pow(cemberinYaricapi, 2);
 }
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -97,29 +97,59 @@ let ucetambolunenler,
   siralisayilar,
   tekraredensayilar;
 
-// 3a çözümü
+enkucuk = sayilar[0];
+enbuyuk = sayilar[0];
+ucetambolunenler = [];
 
-/* kodlar buraya */
+for(let i = 1; i < sayilar.length; i++){
+   if(enkucuk > sayilar[i]) {
+    enkucuk = sayilar[i];
+  }
 
-// 3b çözümü:
+  if(enbuyuk < sayilar[i]) {
+    enbuyuk = sayilar[i];
+  }
+}
+sayilar.forEach(sayi => {
 
-/* kodlar buraya */
+  if(sayi % 3 === 0){
+    ucetambolunenler.push(sayi);
+  }
+});
 
-// 3c çözümü:
+ucebolunenlerintoplami = ucetambolunenler.reduce((toplam, sayi) =>{
+  return toplam + sayi;
+}, 0);
 
-/* kodlar buraya */
+besyuzdenkucuksayilar = sayilar.filter(sayi => sayi < 500);
 
-// 3d çözümü
+siralisayilar = besyuzdenkucuksayilar.sort((a, b) => a- b);
 
-/* kodlar buraya */
+const tekrarObj = {};
 
-// 3e çözümü
+sayilar.forEach(sayi => {
+  if(tekrarObj[sayi] === undefined){
+    tekrarObj[sayi] = 1;
+  }else{
+    tekrarObj[sayi]++;
+  }
+});
 
-/* kodlar buraya */
+tekraredensayilar = [];
 
-// 3f çözümü
+for(let key in tekrarObj){
+  if(tekrarObj[key] >1){
+    tekraredensayilar.push(`${key} sayısı ${tekrarObj[key]} kere tekrar edilmiştir`);
+  }
+}
 
-/* kodlar buraya */
+
+
+
+
+
+
+
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
